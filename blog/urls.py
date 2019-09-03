@@ -1,7 +1,7 @@
 from django.urls import path
-
 from . import views
 from .forms import PostForm
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -19,3 +19,6 @@ path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
 def post_new(request):
     form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
+
+admin.site.site_title = "EnterpriseConnect"
+admin.site.site_header = "EnterpriseConnect Admin"
